@@ -19,4 +19,14 @@ public class HistorialBlogRepository {
     public List<BlogSnapshot> findAll() {
         return new ArrayList<>(store);
     }
+
+    public List<BlogSnapshot> findByBlogId(String blogId) {
+        List<BlogSnapshot> result = new ArrayList<>();
+        for (BlogSnapshot snapshot : store) {
+            if (snapshot.getId().equals(blogId)) {
+                result.add(snapshot);
+            }
+        }
+        return result;
+    }
 }

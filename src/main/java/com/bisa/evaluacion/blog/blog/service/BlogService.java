@@ -95,7 +95,7 @@ public class BlogService {
         return BlogMapper.toDto(blog);
     }
 
-    public List<BlogSnapshotDto> getHistorial() {
-        return historialBlogRepository.findAll().stream().map(BlogSnapshotMapper::toDto).collect(Collectors.toList());
+    public List<BlogSnapshotDto> getHistorial(String id) {
+        return historialBlogRepository.findByBlogId(id).stream().map(BlogSnapshotMapper::toDto).collect(Collectors.toList());
     }
 }

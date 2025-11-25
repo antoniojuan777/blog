@@ -86,8 +86,8 @@ public class BlogController {
             @ApiResponse(responseCode = "200", description = "Lista de blogs obtenida correctamente", content = @Content(mediaType = "application/json", schema = @Schema(implementation = BlogDto.class, type = "array"))),
             @ApiResponse(responseCode = "500", description = "Error inesperado del servidor")
     })
-    @GetMapping("/historial")
-    public ResponseEntity<List<BlogSnapshotDto>> getHistorial() {
-        return ResponseEntity.ok(blogService.getHistorial());
+    @GetMapping("/{id}/historial")
+    public ResponseEntity<List<BlogSnapshotDto>> getHistorial(@PathVariable String id) {
+        return ResponseEntity.ok(blogService.getHistorial(id));
     }
 }
